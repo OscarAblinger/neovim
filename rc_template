@@ -1,0 +1,2 @@
+# These lines should be added to the shell's rc in its respective syntax
+alias vim=nvim
