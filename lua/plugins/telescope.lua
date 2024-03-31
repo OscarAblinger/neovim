@@ -9,8 +9,8 @@ return {
 			{ '<leader>pb', '<cmd>Telescope buffers<cr>', 'n', desc = 'Find in buffers' },
 			{ '<leader>pg', '<cmd>Telescope live_grep<cr>', 'n', desc = 'Live Grep in project' },
 			{ '<leader>pc', '<cmd>Telescope keymaps<cr>', 'n', desc = 'Find NVim commands' },
-			{ '<leader>plb', '<cmd>Telescope lsp_document_symbols<cr>', 'n', desc = 'Find LSP symbols in the current buffer' },
-			{ '<leader>plw', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', 'n', desc = 'Find LSP symbols in the current workspace' },
+			{ '<leader>pdl', '<cmd>Telescope lsp_document_symbols<cr>', 'n', desc = 'Find LSP symbols in the current buffer' },
+			{ '<leader>pl', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', 'n', desc = 'Find LSP symbols in the current workspace' },
 		},
 		opts = {
 			defaults = {
