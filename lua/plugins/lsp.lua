@@ -16,6 +16,7 @@ return {
 	{
 		'hrsh7th/nvim-cmp',
 		event = 'InsertEnter',
+        lazy = true,
 		dependencies = {
 			{'L3MON4D3/LuaSnip'},
 		},
@@ -66,6 +67,16 @@ return {
 						-- (Optional) Configure lua language server for neovim
 						require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 					end,
+					rust_analyzer = function()
+						-- (Optional) Configure lua language server for neovim
+						require('lspconfig').rust_analyzer.setup({
+                            ['rust-analyzer'] = {
+                                cargo = {
+                                    allFeatures = true,
+                                }
+                            }
+                        })
+					end,
 				}
 			})
 		end,
@@ -80,6 +91,18 @@ return {
 	{
 		'nvimdev/lspsaga.nvim',
 		dependencies = {'nvim-tree/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter'},
+		event = {'BufReadPre', 'BufNewFile'},
+        keys = {
+            {'<C-CR>', '<cmd>Lspsaga code_action<cr>', desc = 'Code Action'},
+            {'<ESC><CR>', '<cmd>Lspsaga code_action<cr>', desc = 'Code Action'},
+            {'<leader>b', '<cmd>Lspsaga goto_definition<cr>', desc = 'Go to definition'},
+            {'<leader>t', '<cmd>Lspsaga goto_type_definition<cr>', desc = 'Go to type definition'},
+            {'<leader>lp', '<cmd>Lspsaga peek_definition<cr>', desc = 'Peek definition'},
+            {'<leader>lt', '<cmd>Lspsaga peek_type_definition<cr>', desc = 'Peek type definition'},
+            {'<leader>lr', '<cmd>Lspsaga rename<cr>', desc = 'Rename'},
+            {'<leader>ld', '<cmd>Lspsaga show_line_diagnostics<cr>', desc = 'Shows diagnostics in line'},
+            {'<leader>lD', '<cmd>Lspsaga show_buf_diagnostics<cr>', desc = 'Shows diagnostics in buffer'},
+        },
 		config = function()
 			require('lspsaga').setup({})
 		end,
